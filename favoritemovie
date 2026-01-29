@@ -1,8 +1,22 @@
- FavoriteMovie = "TMNT 2007 Film"
+FavoriteMovie = "TMNT 2007 Film"
 
- print(FavoriteMovie)
+print(FavoriteMovie)
 
- print("##############################")
- print("#     Characters In TMNT     #")
- print("##############################")
- print("")
+print("##############################")
+print("#     Characters In TMNT     #")
+print("##############################")
+print("")
+print("Loenardo")
+print("Rapheal")
+print("Michelangelo")
+print("Donatello")
+print("April O'Neil")
+print("Splinter")
+print("Casey Jones")
+print("Max Winters")
+print("Karai")
+print("General Aguila")
+print("General Serpiente")
+print("General Gato")
+print("Colonel Santino")
+print("Diner Cook")
