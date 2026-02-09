@@ -1,0 +1,6 @@
+card_number = input("Enter card number: ")
+expiration_date = input("Enter card expiration: ")
+CVV = input("Enter CVV: ")
+print(f'card number: {card_number}')
+print(f'card expiration: {expiration_date}')
+print(f'CVV:{CVV}')

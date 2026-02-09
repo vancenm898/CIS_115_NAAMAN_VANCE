@@ -10,8 +10,8 @@ Quotient = sum / float(num3)
 
 print(Quotient)
 
-if(Quotient % 2 == 0):
-  print("even")
+if(Quotient > 0):
+  print("The mathematical operation is > 0")
 
 else: 
-  print("odd")
+  print("The mathematical operation is <= 0")
