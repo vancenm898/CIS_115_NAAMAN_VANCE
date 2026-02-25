@@ -6,5 +6,6 @@ def printwordlist():
     
     for item in word:
         print(item)
+        print(word.index(item))
 
 printwordlist()
