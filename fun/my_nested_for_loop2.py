@@ -8,6 +8,9 @@ def printwordlist():
       #loops through and prints every value in list
     for item in word: 
         count = word.index(item)
+        range()
+        
+        
         print("\n")
         print("*****begin outer loop iteration****")
         #added \n for demonstration clarity
