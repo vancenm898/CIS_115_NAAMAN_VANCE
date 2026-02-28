@@ -12,7 +12,7 @@ def printwordlist():
        print(item)
        print("----------")
 
-       #prints every chara in worrd selected by outerloop iteration
+       #prints every chara in word selected by outerloop iteration
        for c in item:
     
         print(c)
