@@ -1,5 +1,6 @@
 #use list and for-loops to loop over the list and print it out.
 
+
 def getmylist():
     list = [10,20,30,40,50,60]
     count = 0
@@ -10,4 +11,4 @@ def getmylist():
     
     return count
 total = getmylist()
-print(f"The total count is: {total}")
+print(f"The total loop iterations is: {total}")
