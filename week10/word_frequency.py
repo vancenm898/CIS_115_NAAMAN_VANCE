@@ -1,11 +1,4 @@
-# a program that counts the frequency of each word in a given sentence. 
-# Your program should accept a sentence from a user using the input() function and
-#  you should implement a user-defined function named word_frequency() that accepts one argument. 
-# Your word_frequency() function should use a dictionary to help you determine how many times 
-# a given word occurs in the sentence and you should use the split() function to split the sentence into an array/list 
-
-
-
+# counts the words in dictionary
 def word_frequency(mysentence):
 
     words = mysentence.split() #this will slip the sentence provide by user turnin it into a dictionary 
@@ -13,12 +6,14 @@ def word_frequency(mysentence):
 
     wordfrequency = {} # Here is varaible a place holder that will receive a count as word repeats
 
+    #Loops over over the dictionary
     for word in words:
-        word = word.lower() # 
+        word = word.lower() # Takes list add lowercase the words
+        # As dictionary is looped over adds a 1 for every word
         if word in wordfrequency:
-            wordfrequency[word] += 1
+            wordfrequency[word] += 1 # example if "x" is 0 that means x+= 5 is (x= 0+5 ) meain 5 is assined to x now
         else:
-            wordfrequency[word] = 1
+            wordfrequency[word] = 1 # for words that only appear once.
     return wordfrequency
 
 
