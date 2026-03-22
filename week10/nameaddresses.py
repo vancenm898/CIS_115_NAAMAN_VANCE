@@ -29,7 +29,7 @@ def print_dictionary(names_and_addresses):
     for person in x:
         print("---------")
         print(person)
-        print("\n")
+        print("\n") #spaces out the info
 
 # this will call the function
 print_dictionary(names_and_addresses)
