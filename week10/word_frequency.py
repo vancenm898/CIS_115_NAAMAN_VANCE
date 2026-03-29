@@ -2,7 +2,7 @@
 def word_frequency(mysentence):
 
     words = mysentence.split() #this will slip the sentence provide by user turnin it into a dictionary 
-    #print(words)
+    print(words)
 
     wordfrequency = {} # Here is varaible a place holder that will receive a count as word repeats
 

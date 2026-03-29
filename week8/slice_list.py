@@ -5,7 +5,7 @@ months = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "
 
 # This function will return months 4-6 from the list.
 def slice_list():
-    x = months[3:6]
+    x = months[3:6:]
     #print(x)
     return x
 
