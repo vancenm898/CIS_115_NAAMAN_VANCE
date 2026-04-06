@@ -7,7 +7,7 @@ catalog = {
 
 cart = {} # set varaibles empty, Will be passed into later.
 
-# Modcheck for cridit card
+# Modcheck to run cridit card check
 ccNum = input("Give credit card number: ") # Ask the user to enter a credit card number (stored as a string)
 def validateCreditCard(ccNum):
    x = int(1)  # x is used as a loop control variable (1 = keep looping, 0 = stop)
