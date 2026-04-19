@@ -1,10 +1,10 @@
 # Product catalog (dictionary) set as variable
 catalog = {
-    "1": {"description": "USB 128 GB drive", "price": 12.00 },
-    "2": {"description": "Mac Book Pro 15 inch", "price": 2900.00 },
-    "3": {"description": "Arduino 1010(with blue tooth)", "price": 48.00 },
-    "4": {"description": "Ring Camera(wireless)", "price": 156.00  },
-    "5": {"description": "Smart TV(TCL 70 inch)", "price": 359.00, }
+    "1": {"SKU": "usb_k981", "description": "USB 128 GB drive", "price": 12.00, "Qty on Hand": 1000 },
+    "2": {"SKU": "mbpro_490", "description": "Mac Book Pro 15 inch", "price": 2900.00, "Qty on Hand": 45 },
+    "3": {"SKU": "chip_1010", "description": "Arduino 1010(with blue tooth)", "price": 48.00, "Qty on Hand": 325 },
+    "4": {"SKU": "cam_78", "description": "Ring Camera(wireless)", "price": 156.00, "Qty on Hand": 98 },
+    "5": {"SKU": "smt_tv_100", "description": "Smart TV(TCL 70 inch)", "price": 359.00, "Qty on Hand": 225 }
 }  
 
 
@@ -25,37 +25,61 @@ def productcatalog():
    print(" 5  |             Smart TV(TCL 70 inch)             | $359.00  ")
    print("---------------------------------------------------------------")
    print("\n")
-#productcatalog()
+
+
+   print("---------------------------------------------------------------")
+   print("                     PRODUCT CATALOG                           ")
+   print("---------------------------------------------------------------")
+   for pid, info in catalog.items():
+      print(f"{pid} | {info['description']} | ${info['price']}")
+   print("---------------------------------------------------------------\n")
+
+productcatalog()
 
 
 
 def addtocart():
-   productID = catalog[input("Choose a product ID from the product catalog to continue: ")]
+   PID = catalog[input("Choose a product ID from the product catalog to continue: ")]
+   productID = 1
+
    amount = int(input(f"Enter quantity for product {productID}: "))
    cart = [] # set varaibles empty, Will be passed into later.
-   numofproducts = []
+   numofproducts = 0
     
     
    #adds to cart
-   cart.append({"Product":productID,"numofproducts":amount})
+   cart.append({"Product":productID, "Num": amount})
+   numofproducts += amount
     
-
     #prompt users y or n and assins to d (first itiration ends here)
    d = input("Would you like to add another product (y or n)?: ").lower()
 
    #while y == d the loop will continue
    while (d == "y" or d =="yes"):
-        #Set input varable 
-        productID = catalog[input("Choose a product ID from the product catalog to continue: ")]
+      #Set input varable 
+      productID = catalog[input("Choose a product ID from the product catalog to continue: ")]
+      amount = int(input(f"Enter quantity for product {productID}: "))
+      numofproducts += amount
 
-        cart.append({"Product":productID,"numofproducts":amount})
+      if productID in cart:
+           cart[productID] += 1
+      else:
+         cart.append({"Product":productID, "Num": amount})
+         d = input("Would you like to enter another value to append to the list?(y or n): ").lower()
+   print(cart," ",numofproducts)
 
-        d = input("Would you like to enter another value to append to the list?(y or n): ").lower()
-   print(cart)
 
-addtocart()
-
+#addtocart()
 #print(catalog[productID])
+
+#checkout
+def checkout():
+   pass
+
+
+checkout()
+
+
 # Modcheck to run cridit card check
 def validateCreditCard():
    ccNum = input("Give credit card number: ") # Ask the user to enter a credit card number (stored as a string)
