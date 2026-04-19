@@ -34,6 +34,7 @@ def productcatalog():
       print(f"{pid} | {info['description']} | ${info['price']}")
    print("---------------------------------------------------------------\n")
 
+
 productcatalog()
 
 
@@ -65,17 +66,28 @@ def addtocart():
            cart[productID] += 1
       else:
          cart.append({"Product":productID, "Num": amount})
-         d = input("Would you like to enter another value to append to the list?(y or n): ").lower()
+         d = input("Would you like to add another product (y or n)?: ").lower()
+         d = input("Are you ready to check out?(y or n):  ").lower()
+   
    print(cart," ",numofproducts)
 
 
 #addtocart()
 #print(catalog[productID])
+input("Are you ready to check out?:  ")
+
 
 #checkout
 def checkout():
-   pass
-
+   print("Enter your billing/shipping information:")
+   fn = input("First Name: ")
+   ln = input("Last Name: ")
+   c = input("City: ")
+   s = input("State: ")
+   zp = input("Zip Code/Post code: ")
+   e = input("Email: ")
+   n = input("Phone: ")
+   return fn,ln,c,s,zp,e,n
 
 checkout()
 
