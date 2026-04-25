@@ -26,71 +26,70 @@ def productcatalog():
    print("---------------------------------------------------------------")
    print("\n")
 
-
-   print("---------------------------------------------------------------")
-   print("                     PRODUCT CATALOG                           ")
-   print("---------------------------------------------------------------")
-   for pid, info in catalog.items():
-      print(f"{pid} | {info['description']} | ${info['price']}")
-   print("---------------------------------------------------------------\n")
-
-
 productcatalog()
 
 
 
-def addtocart():
-   PID = catalog[input("Choose a product ID from the product catalog to continue: ")]
-   productID = 1
-
-   amount = int(input(f"Enter quantity for product {productID}: "))
-   cart = [] # set varaibles empty, Will be passed into later.
-   numofproducts = 0
-    
+def addtocart(catalog):
+   
+   cart = {} # set varaibles empty, Will be passed into later.
     
    #adds to cart
-   cart.append({"Product":productID, "Num": amount})
-   numofproducts += amount
-    
-    #prompt users y or n and assins to d (first itiration ends here)
-   d = input("Would you like to add another product (y or n)?: ").lower()
+   
+   d = "y"
 
    #while y == d the loop will continue
    while (d == "y" or d =="yes"):
       #Set input varable 
-      productID = catalog[input("Choose a product ID from the product catalog to continue: ")]
+      print("\n")
+      productID = input("Choose a product ID from the product catalog to continue: ")
+      
       amount = int(input(f"Enter quantity for product {productID}: "))
-      numofproducts += amount
+      price = catalog[productID]["price"] * amount
 
       if productID in cart:
-           cart[productID] += 1
+           cart[productID]["quantity"] += amount
+           cart[productID]["Total Price"] += price
       else:
-         cart.append({"Product":productID, "Num": amount})
-         d = input("Would you like to add another product (y or n)?: ").lower()
-         d = input("Are you ready to check out?(y or n):  ").lower()
-   
-   print(cart," ",numofproducts)
+         cart[productID] = {
+                "SKU": catalog[productID]["SKU"],
+                "description": catalog[productID]["description"],
+                "price": catalog[productID]["price"],
+                "quantity": amount,
+                "Total Price": price
+            }
+         #prompt users y or n and assins to d (first itiration ends here)
+
+      x = input("Would you like to add another product (y or n)?: ").lower()
+      if (x == "n") or (x == "no"):
+         x = input("Are you ready to check out?(y or n):  ").lower()
+         if (x == "y") or (x == "yes"):
+            d = "n"
+         else:
+            d = "y"
+   return cart
+
+MyCart = addtocart(catalog)
+MCT = 0
+for item in MyCart.values():
+   MCT += item["Total Price"]
+#print(MyCart)
+#print(MCT)
+print("\n")
+print("\n")
 
 
-#addtocart()
-#print(catalog[productID])
-input("Are you ready to check out?:  ")
-
-
-#checkout
-def checkout():
-   print("Enter your billing/shipping information:")
-   fn = input("First Name: ")
-   ln = input("Last Name: ")
-   c = input("City: ")
-   s = input("State: ")
-   zp = input("Zip Code/Post code: ")
-   e = input("Email: ")
-   n = input("Phone: ")
-   return fn,ln,c,s,zp,e,n
-
-checkout()
-
+print("Enter your billing/shipping information:")
+fn = input("First Name: ")
+ln = input("Last Name: ")
+a = input("Address: ")
+c = input("City: ")
+s = input("State: ")
+zp = input("Zip Code/Post code: ")
+e = input("Email: ")
+n = input("Phone: ")
+print("\n")
+print("\n")
 
 # Modcheck to run cridit card check
 def validateCreditCard():
@@ -115,5 +114,36 @@ def validateCreditCard():
       else: # Keeps loop if num dosn't divid without remainder
          x=1
          ccNum = input("Invalid credit card entered. Please try again.: ")
-#validateCreditCard() # call function
+   input("Enter the expiration date on your card: ")
+   input("Please enter your CVV: ")
+validateCreditCard() # call function
+print("\n")
 
+print("\n")
+print("\n")
+print("---------------------------------------------------------------")
+print("\n")
+print("                Billing/Shipping Information:                  ")
+print("\n")
+print("---------------------------------------------------------------")
+print(f" Name:           {fn} {ln}           ")
+print("\n")
+print(f" Address:              {a}           ")
+print(f" City:                 {c}           ")
+print(f" State:                {s}           ")
+print(f" Zip Code/Post code:   {zp}          ")
+print(f" Email:                {e}           ")
+print(f" Phone:                {n}           ")
+print("---------------------------------------------------------------")
+print("\n")
+print("                Shopping Cart Information:                     ")
+print("\n")
+print("---------------------------------------------------------------")
+print("ProductID |    SKU   | Qty | Price | Description       | Total ")
+print("---------------------------------------------------------------")
+print("\n")
+for pid, info in MyCart.items():
+   print(f"     {pid}    | {info["SKU"]} |  {info["quantity"]}  | ${info["price"]} | {info["description"]} | ${info["Total Price"]}")
+print("---------------------------------------------------------------\n")
+print("Cart Total:", MCT)
+print("\n")
