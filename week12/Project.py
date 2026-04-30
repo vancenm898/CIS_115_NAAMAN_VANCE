@@ -1,4 +1,4 @@
-# Product catalog (dictionary) set as variable
+# Product catalog (dictionary) set as variable, this is where 
 catalog = {
     "1": {"SKU": "usb_k981", "description": "USB 128 GB drive", "price": 12.00, "Qty on Hand": 1000 },
     "2": {"SKU": "mbpro_490", "description": "Mac Book Pro 15 inch", "price": 2900.00, "Qty on Hand": 45 },
@@ -80,6 +80,7 @@ print("\n")
 
 
 print("Enter your billing/shipping information:")
+print("----------------------------------------")
 fn = input("First Name: ")
 ln = input("Last Name: ")
 a = input("Address: ")
@@ -92,6 +93,8 @@ print("\n")
 print("\n")
 
 # Modcheck to run cridit card check
+print("Payment Info:")
+print("-------------")
 def validateCreditCard():
    ccNum = input("Give credit card number: ") # Ask the user to enter a credit card number (stored as a string)
    x = int(1)  # x is used as a loop control variable (1 = keep looping, 0 = stop)
