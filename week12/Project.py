@@ -146,7 +146,7 @@ def validateCreditCard():
    #Prompt user for rest of card info
    input("Enter the expiration date on your card: ")
    input("Please enter your CVV: ")
-#validateCreditCard() # call function
+validateCreditCard() # call function
 print("\n")
 
 #For user eyes
